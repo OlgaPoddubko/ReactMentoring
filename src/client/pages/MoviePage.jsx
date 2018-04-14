@@ -11,12 +11,12 @@ class MoviePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <div>
           {this.state.greeting}
         </div>
         <Footer />
-      </div>
+      </React.Fragment>
     );
   }
 }
