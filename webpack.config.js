@@ -1,7 +1,5 @@
 const path = require('path');
 
-const webpack = require("webpack");
-
 module.exports = function(env, options) {
   const isProduction = options.mode === "production";
 
