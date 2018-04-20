@@ -4,7 +4,9 @@
   "description": "React",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --config webpack.config.dev.js",
+    "prod": "webpack --config webpack.config.prod.js",
+    "base": "webpack --config webpack.config.js",
     "start": "webpack -d && nodemon --exec babel-node ./src/server",
     "test": "jest",
     "test:watch": "jest --watchAll",
@@ -37,7 +39,8 @@
     "jest": "^22.4.3",
     "nodemon": "^1.12.1",
     "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.14"
+    "webpack-cli": "^2.0.14",
+    "webpack-merge": "^4.1.2"
   },
   "dependencies": {
     "express": "^4.16.2",

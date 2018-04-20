@@ -1,12 +1,13 @@
 const path = require('path');
 
-module.exports = function(env, options) {
+module.exports = {
+/*function(env, options) {
   const isProduction = options.mode === "production";
 
-  const config = {
+  const config = {*/
     entry: './src/client/index.jsx',
-    mode: isProduction ? "production" : "development",
-    devtool: isProduction ? "none"  : "source-map",
+    //mode: isProduction ? "production" : "development",
+  //  devtool: isProduction ? "none"  : "source-map",
 
     output: {
       filename: 'bundle.js',
@@ -34,6 +35,6 @@ module.exports = function(env, options) {
       contentBase: "./public/js/"
     }
   };
-
+/*
   return config;
-};
+};*/
