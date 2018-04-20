@@ -1,34 +1,41 @@
 const path = require('path');
 
-module.exports = {
-  entry: './src/client/index.jsx',
+const webpack = require("webpack");
 
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve('./public/js/')
-  },
+module.exports = function(env, options) {
+  const isProduction = options.mode === "production";
 
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
+  const config = {
+    entry: './src/client/index.jsx',
+    mode: isProduction ? "production" : "development",
+    devtool: isProduction ? "none"  : "source-map",
 
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }, {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "url-loader",
-        query: {
-          limit: '10000',
-          name: '[name].[ext]',
-          outputPath: 'fonts/'
-      }
-      }, {
-        test: /\.jsx?$/,
-        use: 'babel-loader'
-      }
-    ]
-  }
+    output: {
+      filename: 'bundle.js',
+      path: path.resolve('./public/js/')
+    },
+
+    resolve: {
+      extensions: ['.js', '.jsx']
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
+        }, {
+          test: /\.jsx?$/,
+          loader: "babel-loader",
+          exclude: /node_modules/
+        }
+      ]
+    },
+
+    devServer: {
+      contentBase: "./public/js/"
+    }
+  };
+
+  return config;
 };
