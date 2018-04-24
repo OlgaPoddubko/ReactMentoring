@@ -1,40 +1,32 @@
 const path = require('path');
 
 module.exports = {
-/*function(env, options) {
-  const isProduction = options.mode === "production";
+  entry: './src/client/index.jsx',
 
-  const config = {*/
-    entry: './src/client/index.jsx',
-    //mode: isProduction ? "production" : "development",
-  //  devtool: isProduction ? "none"  : "source-map",
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve('./public/js/')
+  },
 
-    output: {
-      filename: 'bundle.js',
-      path: path.resolve('./public/js/')
-    },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
 
-    resolve: {
-      extensions: ['.js', '.jsx']
-    },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }, {
+        test: /\.jsx?$/,
+        loader: "babel-loader",
+        exclude: /node_modules/
+      }
+    ]
+  },
 
-    module: {
-      rules: [
-        {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader']
-        }, {
-          test: /\.jsx?$/,
-          loader: "babel-loader",
-          exclude: /node_modules/
-        }
-      ]
-    },
-
-    devServer: {
-      contentBase: "./public/js/"
-    }
-  };
-/*
-  return config;
-};*/
+  devServer: {
+    contentBase: "./public/js/"
+  }
+  
+};
