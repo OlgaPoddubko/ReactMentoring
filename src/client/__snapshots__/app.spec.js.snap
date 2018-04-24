@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render App should render App 1`] = `
+<div>
+  <ul>
+    <li>
+      <Link
+        replace={false}
+        to="/"
+      >
+        Home
+      </Link>
+    </li>
+    <li>
+      <Link
+        replace={false}
+        to="/movie"
+      >
+        Movie
+      </Link>
+    </li>
+  </ul>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      path="/movie"
+    />
+    <Redirect
+      push={false}
+      to="/"
+    />
+  </Switch>
+</div>
+`;
