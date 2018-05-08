@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render SearchBlock should render SearchBlock 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="inner-header"
+  >
+    <div
+      className="logo"
+    >
+      netflixroulette
+    </div>
+    <div
+      className="search-block"
+    >
+      <h3>
+        Find your movie
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="search-input"
+          onChange={[Function]}
+          placeholder="search"
+          required={true}
+          type="text"
+          value=""
+        />
+        <button
+          className="search-button"
+          type="submit"
+        >
+          search
+        </button>
+      </form>
+      <span>
+        search by
+      </span>
+      <button
+        className="active-search search-by"
+        onClick={[Function]}
+        type="button"
+        value="title"
+      >
+        title
+      </button>
+      <button
+        className="search-by"
+        onClick={[Function]}
+        type="button"
+        value="genre"
+      >
+        genre
+      </button>
+    </div>
+  </div>
+  <style
+    jsx={true}
+  >
+    
+          .header {
+            background: #414141;
+          }
+          .inner-header {
+            padding: 30px 35px;
+            max-width: 1130px;
+            margin: 0 auto;
+          }
+          .logo {
+            color: #e75f77;
+            margin-bottom: 60px;
+          }
+          .search-block {
+            color: #ffffff;
+          }
+          .search-block h3 {
+            text-transform: uppercase;
+          }
+          .search-block form {
+            position: relative;
+            margin: 20px 0;
+          }
+          .search-input {
+            width: 97%;
+            padding: 15px 18px;
+            background: #030200;
+            border: none;
+            border-bottom: #e75f77;
+            color: #ffffff;
+          }
+          .search-button {
+            position: absolute;
+            top: 67px;
+            right: 0;
+            width: 240px;
+            background: #e75f77;
+            color: #ffffff;
+            border: none;
+            text-transform: uppercase;
+            padding: 10px;
+          }
+          .search-by {
+            margin-left: 20px;
+            padding: 10px;
+            width: 100px;
+            background: #4d4d4d;
+            color: #ffffff;
+            border: none;
+            text-transform: uppercase;
+          }
+          .active-search {
+            background: #e75f77;
+          }
+        
+  </style>
+</div>
+`;
