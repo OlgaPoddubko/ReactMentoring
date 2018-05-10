@@ -1,26 +1,28 @@
 import React from 'react';
-/*
-const Footer = React.createElement(
-  "p",
-  {className: "footer"},
-  "netflixroulette"
+
+const Footer = props => (
+  <div className="footer">
+    <div className="inner-footer">netflixroulette</div>
+    <style jsx>{`
+      *{
+        padding: 0;
+        margin: 0;
+        font-family: Candara, Arial, sans-serif;
+      }
+
+      .footer {
+        background: #414141;
+      }
+
+      .inner-footer {
+        max-width: 1130px;
+        margin: 0 auto;
+        color: #e75f77;
+        font-weight: bold;
+        padding: 30px 35px;
+      }
+    `}</style>
+  </div>
 );
-
-//Invariant Violation: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object.
-*/
-
-class Footer extends React.PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div className="footer">
-      netflixroulette
-      </div>
-    );
-  }
-}
 
 export default Footer;

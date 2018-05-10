@@ -1,6 +1,7 @@
 import React from 'react';
 import movieArr from '../movieArr';
 
+import ErrorBoundary from '../components/ErrorBoundary';
 import SearchBlock from '../components/SearchBlock';
 import ResultsSort from '../components/ResultsSort';
 import MovieList from '../components/MovieList';
@@ -17,10 +18,12 @@ class HomePage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <SearchBlock />
-        <ResultsSort total={this.state.total}/>
-        <MovieList movies={this.state.data}/>
-        <Footer />
+        <ErrorBoundary >
+          <SearchBlock />
+          <ResultsSort total={this.state.total}/>
+          <MovieList movies={this.state.data}/>
+          <Footer />
+        </ErrorBoundary>
       </React.Fragment>
     );
   }
