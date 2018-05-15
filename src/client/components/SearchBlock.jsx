@@ -1,4 +1,6 @@
 import React from 'react';
+import Logo from './Logo';
+import SearchByButtons from './SearchByButtons';
 
 class SearchBlock extends React.Component {
   constructor(props) {
@@ -33,7 +35,7 @@ class SearchBlock extends React.Component {
     return (
       <div className="header">
         <div className="inner-header">
-          <div className="logo">netflixroulette</div>
+          <Logo />
 
           <div className="search-block">
             <h3>Find your movie</h3>
@@ -43,9 +45,7 @@ class SearchBlock extends React.Component {
               <button className="search-button" type="submit">search</button>
             </form>
 
-            <span>search by</span>
-            <button className= { this.state.searchBy == 'title' ? 'active-search search-by' : 'search-by'} type="button" value="title" onClick={this.handleSearchByChange}>title</button>
-            <button className= { this.state.searchBy == 'genre' ? 'active-search search-by' : 'search-by'} type="button" value="genre" onClick={this.handleSearchByChange}>genre</button>
+            <SearchByButtons />
           </div>
         </div>
         <style jsx>{`
@@ -56,10 +56,6 @@ class SearchBlock extends React.Component {
             padding: 30px 35px;
             max-width: 1130px;
             margin: 0 auto;
-          }
-          .logo {
-            color: #e75f77;
-            margin-bottom: 60px;
           }
           .search-block {
             color: #ffffff;
@@ -89,18 +85,6 @@ class SearchBlock extends React.Component {
             border: none;
             text-transform: uppercase;
             padding: 10px;
-          }
-          .search-by {
-            margin-left: 20px;
-            padding: 10px;
-            width: 100px;
-            background: #4d4d4d;
-            color: #ffffff;
-            border: none;
-            text-transform: uppercase;
-          }
-          .active-search {
-            background: #e75f77;
           }
         `}</style>
       </div>

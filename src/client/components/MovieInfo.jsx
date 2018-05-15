@@ -1,10 +1,11 @@
 import React from 'react';
+import Logo from './Logo';
 
 const MovieInfo = props => (
 
       <div className="movie-info">
         <div className="inner-movie-info">
-          <div className="logo">netflixroulette</div>
+          <Logo />
 
           <div className="movie-img">
             <img src={props.movie.poster_path} />
@@ -77,10 +78,7 @@ const MovieInfo = props => (
     .clear {
       clear: both;
     }
-    .logo {
-      color: #e75f77;
-      margin-bottom: 60px;
-    }
+
   `}</style>
 </div>
 );
