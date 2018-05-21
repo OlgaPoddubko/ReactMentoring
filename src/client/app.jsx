@@ -1,8 +1,13 @@
 import React from 'react';
-import {Route, Link, Switch, Redirect} from 'react-router-dom';
+//import {Route, Link, Switch, Redirect} from 'react-router-dom';
+import { Link, Switch } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import 'isomorphic-fetch';
 
-import HomePage from './pages/HomePage';
-import MoviePage from './pages/MoviePage';
+import routes from './routes';
+
+//import HomePage from './pages/HomePage';
+//import MoviePage from './pages/MoviePage';
 
 const App = () => (
   <div>
@@ -12,9 +17,7 @@ const App = () => (
     </ul>
 
     <Switch>
-      <Route exact path="/" component={HomePage}/>
-      <Route path="/movie" component={MoviePage}/>
-      <Redirect to="/" />
+      {renderRoutes(routes)}
     </Switch>
 
   </div>
