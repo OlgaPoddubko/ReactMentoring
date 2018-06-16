@@ -15,12 +15,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }, {
         test: /\.jsx?$/,
         loader: "babel-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        query: {
+            presets: ['react']
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" }
+        ]
       }
     ]
   },
@@ -28,5 +35,5 @@ module.exports = {
   devServer: {
     contentBase: "./public/js/"
   }
-  
+
 };
