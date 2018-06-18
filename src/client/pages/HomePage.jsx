@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-//import movieArr from '../movieArr';
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchBlog } from '../reducers/blog';
@@ -12,20 +11,29 @@ import MovieList from '../components/MovieList';
 import Footer from '../components/Footer';
 
 class HomePage extends Component {
+  static propTypes = {
+    fetchBlog: PropTypes.func.isRequired, //
+    data: PropTypes.arrayOf(PropTypes.object),
+    loading: PropTypes.bool,
+  };
+// надо ли?
   static defaultProps = {
     data: [],
     total: 0,
     loading: false
   };
-
+/*
   static fetchData(dispatch) {
       return dispatch(fetchBlog());
     }
+*/
 
+// его не надо здесь вызывать
+/*
   componentDidMount() {
     this.props.fetchBlog();
   }
-
+*/
   render() {
     const { data, total, loading } = this.props;
     return (
@@ -50,6 +58,7 @@ const mapStateToProps = state => ({
   total: state.blog.total,
   loading: state.blog.loading,
 });
+/**/
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchBlog,
 }, dispatch);

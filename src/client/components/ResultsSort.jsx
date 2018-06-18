@@ -1,17 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { changeSortBy } from '../reducers/blog';
 
 class ResultsSort extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sortBy: 'release date'
-    };
-
     this.handleSortByChange = this.handleSortByChange.bind(this);
   }
 
+  static propTypes = {
+    sortBy: PropTypes.string.isRequired,
+    total: PropTypes.number.isRequired,
+  };
+
   handleSortByChange(e) {
-    this.setState({sortBy: e.target.value});
+    changeSortBy(e.target.value);
   }
 
   render() {
@@ -20,8 +25,8 @@ class ResultsSort extends React.Component {
         <div className="inner-results-sort">
           <div className="sorting-params">
             <span>sort by</span>
-            <button className={ this.state.sortBy == 'release date' ? 'active-sort' : ''} type="button" value="release date" onClick={this.handleSortByChange}>release date</button>
-            <button className={ this.state.sortBy == 'rating' ? 'active-sort' : ''} type="button" value="rating" onClick={this.handleSortByChange}>rating</button>
+            <button className={ this.props.sortBy == 'release_date' ? 'active-sort' : ''} type="button" value="release_date" onClick={this.handleSortByChange}>release date</button>
+            <button className={ this.props.sortBy == 'rating' ? 'active-sort' : ''} type="button" value="rating" onClick={this.handleSortByChange}>rating</button>
           </div>
 
           <span className="items-found">{this.props.total} movies found </span>
@@ -56,4 +61,13 @@ class ResultsSort extends React.Component {
   }
 }
 
-export default ResultsSort;
+const mapStateToProps = state => ({
+  sortBy: state.blog.sortBy,
+  total: state.blog.total,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  changeSortBy,
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ResultsSort);
