@@ -8,6 +8,8 @@ class ResultsSort extends React.Component {
   constructor(props) {
     super(props);
     this.handleSortByChange = this.handleSortByChange.bind(this);
+
+    this.boundActions = bindActionCreators({changeSortBy}, this.props.dispatch);
   }
 
   static propTypes = {
@@ -16,7 +18,7 @@ class ResultsSort extends React.Component {
   };
 
   handleSortByChange(e) {
-    changeSortBy(e.target.value);
+    this.boundActions.changeSortBy(e.target.value);
   }
 
   render() {
@@ -26,7 +28,7 @@ class ResultsSort extends React.Component {
           <div className="sorting-params">
             <span>sort by</span>
             <button className={ this.props.sortBy == 'release_date' ? 'active-sort' : ''} type="button" value="release_date" onClick={this.handleSortByChange}>release date</button>
-            <button className={ this.props.sortBy == 'rating' ? 'active-sort' : ''} type="button" value="rating" onClick={this.handleSortByChange}>rating</button>
+            <button className={ this.props.sortBy == 'vote_average' ? 'active-sort' : ''} type="button" value="vote_average" onClick={this.handleSortByChange}>rating</button>
           </div>
 
           <span className="items-found">{this.props.total} movies found </span>
@@ -66,8 +68,4 @@ const mapStateToProps = state => ({
   total: state.blog.total,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  changeSortBy,
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(ResultsSort);
+export default connect(mapStateToProps)(ResultsSort);

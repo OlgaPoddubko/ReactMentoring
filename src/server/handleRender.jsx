@@ -17,7 +17,7 @@ function renderFullPage(html, preloadedState) {
 		<html>
 			<head>
 				<meta charset=utf-8>
-        <title>Movie Observer</title>
+        <title>Movies Observer</title>
 			</head>
 			<body>
         <div id="root">${html}</div>

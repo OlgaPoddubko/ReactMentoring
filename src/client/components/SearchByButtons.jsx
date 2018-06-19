@@ -8,6 +8,7 @@ class SearchByButtons extends React.Component {
   constructor(props) {
     super(props);
     this.handleSearchByChange = this.handleSearchByChange.bind(this);
+    this.boundActions = bindActionCreators({changeSearchBy}, this.props.dispatch);
   }
 
   static propTypes = {
@@ -15,9 +16,7 @@ class SearchByButtons extends React.Component {
   };
 
   handleSearchByChange(e) {
-      console.log(`chaging searchBy to ${e.target.value}`);
-    changeSearchBy(e.target.value);
-      console.log(`chaging state.searchBy to ${this.props.searchBy}`);
+    this.boundActions.changeSearchBy(e.target.value);
   }
 
   render() {
@@ -50,8 +49,4 @@ const mapStateToProps = state => ({
   searchBy: state.blog.searchBy,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  changeSearchBy,
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchByButtons);
+export default connect(mapStateToProps)(SearchByButtons);

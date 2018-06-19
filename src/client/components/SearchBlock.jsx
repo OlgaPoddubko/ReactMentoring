@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchBlog, updateSearchInput } from '../reducers/blog';
+import { fetchBlog, changeSearchInput } from '../reducers/blog';
 import Logo from './Logo';
 import SearchByButtons from './SearchByButtons';
 
@@ -10,25 +10,27 @@ class SearchBlock extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      search: '',
-    };
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputTextChange = this.handleInputTextChange.bind(this);
+
+    this.boundActions = bindActionCreators({fetchBlog, changeSearchInput}, this.props.dispatch);
   }
 
+  static propTypes = {
+    state: PropTypes.object,
+    search: PropTypes.string,
+  };
+
   handleInputTextChange(e) {
-    this.setState({search: e.target.value}); // чтоб сократить число запросов, либо - updateSearchInput
+    this.boundActions.changeSearchInput(e.target.value);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    if (!this.state.search.length) {
+    if (!this.props.search.length) {
       return;
     }
-    // предварительно updateSearchInput
-    this.props.fetchBlog();
+    this.boundActions.fetchBlog(this.props.state);
   }
 
   render() {
@@ -41,7 +43,7 @@ class SearchBlock extends React.Component {
             <h3>Find your movie</h3>
 
             <form onSubmit={this.handleSubmit}>
-              <input className="search-input" value={this.state.search} onChange={this.handleInputTextChange} placeholder="search" required type="text"/>
+              <input className="search-input" value={this.props.search} onChange={this.handleInputTextChange} placeholder="search" required type="text"/>
               <button className="search-button" type="submit">search</button>
             </form>
 
@@ -92,9 +94,9 @@ class SearchBlock extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchBlog,
-  updateSearchInput
-}, dispatch);
+const mapStateToProps = state => ({
+  state: state.blog,
+  search: state.blog.search,
+});
 
-export default connect(null, mapDispatchToProps)(SearchBlock);
+export default connect(mapStateToProps)(SearchBlock);

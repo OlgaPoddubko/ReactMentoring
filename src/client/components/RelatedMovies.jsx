@@ -3,25 +3,26 @@ import Movie from './Movie';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-class MovieList extends Component {
+class RelatedMovies extends Component {
   static propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.object),
+    relatedMovies: PropTypes.arrayOf(PropTypes.object),
   };
 
   static defaultProps = {
-    movies: [],
+    relatedMovies: [],
   };
 
   render() {
-    const movies = this.props.movies;
+    const relatedMovies = this.props.relatedMovies;
     return (
       <div className="items">
-        {movies.map(elem =>
-          <Movie
-            key={elem.id}
-            movie={elem}
-          />
-        )}
+        { relatedMovies.map(elem =>
+            <Movie
+              key={elem.id}
+              movie={elem}
+            />
+          )
+        }
         <style jsx>{`
           .items {
             max-width: 1200px;
@@ -34,7 +35,7 @@ class MovieList extends Component {
 }
 
 const mapStateToProps = state => ({
-  movies: state.blog.movies,
+  relatedMovies: state.blog.relatedMovies,
 });
 
-export default connect(mapStateToProps)(MovieList);
+export default connect(mapStateToProps)(RelatedMovies);

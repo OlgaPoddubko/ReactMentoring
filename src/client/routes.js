@@ -3,12 +3,12 @@ import MoviePage from './pages/MoviePage';
 
 export default [
   {
-    path: '/',
+    path: '/movies',
     exact: true,
     component: HomePage,
   },
   {
-    path: '/movie',
+    path: '/movies/:id',
     exact: true,
     component: MoviePage,
   }
