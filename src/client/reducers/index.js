@@ -1,5 +1,5 @@
-import blog from './blog';
+import gallery from './gallery';
 
 export {
-  blog
+  gallery
 };

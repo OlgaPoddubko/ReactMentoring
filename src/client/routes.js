@@ -1,5 +1,5 @@
-import HomePage from './pages/HomePage';
-import MoviePage from './pages/MoviePage';
+import HomePage from './containers/HomePage';
+import MoviePage from './containers/MoviePage';
 
 export default [
   {

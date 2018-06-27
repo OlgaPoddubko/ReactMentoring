@@ -37,7 +37,7 @@ class HomePage extends Component {
 }
 
 const mapStateToProps = state => ({
-  loading: state.blog.loading,
+  loading: state.gallery.loading,
 });
 
 export default connect(mapStateToProps)(HomePage);

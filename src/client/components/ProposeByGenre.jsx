@@ -29,7 +29,7 @@ class ProposeByGenre extends Component {
 }
 
 const mapStateToProps = state => ({
-  currentMovie: state.blog.currentMovie,
+  currentMovie: state.gallery.currentMovie,
 });
 
 export default connect(mapStateToProps)(ProposeByGenre);

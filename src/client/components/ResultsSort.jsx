@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { changeSortBy } from '../reducers/blog';
+import { changeSortBy } from '../actions';
 
 class ResultsSort extends React.Component {
   constructor(props) {
@@ -64,8 +64,8 @@ class ResultsSort extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  sortBy: state.blog.sortBy,
-  total: state.blog.total,
+  sortBy: state.gallery.sortBy,
+  total: state.gallery.total,
 });
 
 export default connect(mapStateToProps)(ResultsSort);

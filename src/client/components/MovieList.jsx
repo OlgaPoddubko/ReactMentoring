@@ -34,7 +34,7 @@ class MovieList extends Component {
 }
 
 const mapStateToProps = state => ({
-  movies: state.blog.movies,
+  movies: state.gallery.movies,
 });
 
 export default connect(mapStateToProps)(MovieList);

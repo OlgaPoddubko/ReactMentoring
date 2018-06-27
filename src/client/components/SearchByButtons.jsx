@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { changeSearchBy } from '../reducers/blog';
+import { changeSearchBy } from '../actions';
 
 class SearchByButtons extends React.Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class SearchByButtons extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  searchBy: state.blog.searchBy,
+  searchBy: state.gallery.searchBy,
 });
 
 export default connect(mapStateToProps)(SearchByButtons);

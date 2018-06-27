@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setCurrentMovie, fetchRelatedMovies } from '../reducers/blog';
+import { setCurrentMovie, fetchRelatedMovies } from '../actions';
 import { Link } from 'react-router-dom';
 
 class Movie extends Component {

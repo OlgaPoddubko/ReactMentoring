@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchBlog, changeSearchInput } from '../reducers/blog';
+import { fetchGallery, changeSearchInput } from '../actions';
 import Logo from './Logo';
 import SearchByButtons from './SearchByButtons';
 
@@ -13,7 +13,7 @@ class SearchBlock extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputTextChange = this.handleInputTextChange.bind(this);
 
-    this.boundActions = bindActionCreators({fetchBlog, changeSearchInput}, this.props.dispatch);
+    this.boundActions = bindActionCreators({fetchGallery, changeSearchInput}, this.props.dispatch);
   }
 
   static propTypes = {
@@ -30,7 +30,7 @@ class SearchBlock extends React.Component {
     if (!this.props.search.length) {
       return;
     }
-    this.boundActions.fetchBlog(this.props.state);
+    this.boundActions.fetchGallery(this.props.state);
   }
 
   render() {
@@ -95,8 +95,8 @@ class SearchBlock extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  state: state.blog,
-  search: state.blog.search,
+  state: state.gallery,
+  search: state.gallery.search,
 });
 
 export default connect(mapStateToProps)(SearchBlock);
