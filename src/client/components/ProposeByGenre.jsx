@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const ProposeByGenre = props => (
-  <div className="proposal">
-    <div className="inner-proposal">
-      Films by {props.movie.genres[0]} genre
-    </div>
-    <style jsx>{`
-      .proposal {
-        background: #f5f5f5;
-      }
-      .inner-proposal {
-        padding: 15px 35px;
-        max-width: 1130px;
-        margin: 0 auto;
-      }
-    `}</style>
-  </div>
-);
+class ProposeByGenre extends Component {
+  static propTypes = {
+    currentMovie: PropTypes.object.isRequired,
+  };
 
-export default ProposeByGenre;
+  render() {
+    return (
+      <div className="proposal">
+        <div className="inner-proposal">
+          Films by {this.props.currentMovie.genres[0]} genre
+        </div>
+        <style jsx>{`
+          .proposal {
+            background: #f5f5f5;
+          }
+          .inner-proposal {
+            padding: 15px 35px;
+            max-width: 1130px;
+            margin: 0 auto;
+          }
+        `}</style>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  currentMovie: state.gallery.currentMovie,
+});
+
+export default connect(mapStateToProps)(ProposeByGenre);

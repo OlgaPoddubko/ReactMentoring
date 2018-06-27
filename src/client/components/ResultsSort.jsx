@@ -1,17 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { changeSortBy } from '../actions';
 
 class ResultsSort extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      sortBy: 'release date'
-    };
-
     this.handleSortByChange = this.handleSortByChange.bind(this);
+
+    this.boundActions = bindActionCreators({changeSortBy}, this.props.dispatch);
   }
 
+  static propTypes = {
+    sortBy: PropTypes.string.isRequired,
+    total: PropTypes.number.isRequired,
+  };
+
   handleSortByChange(e) {
-    this.setState({sortBy: e.target.value});
+    this.boundActions.changeSortBy(e.target.value);
   }
 
   render() {
@@ -20,8 +27,8 @@ class ResultsSort extends React.Component {
         <div className="inner-results-sort">
           <div className="sorting-params">
             <span>sort by</span>
-            <button className={ this.state.sortBy == 'release date' ? 'active-sort' : ''} type="button" value="release date" onClick={this.handleSortByChange}>release date</button>
-            <button className={ this.state.sortBy == 'rating' ? 'active-sort' : ''} type="button" value="rating" onClick={this.handleSortByChange}>rating</button>
+            <button className={ this.props.sortBy == 'release_date' ? 'active-sort' : ''} type="button" value="release_date" onClick={this.handleSortByChange}>release date</button>
+            <button className={ this.props.sortBy == 'vote_average' ? 'active-sort' : ''} type="button" value="vote_average" onClick={this.handleSortByChange}>rating</button>
           </div>
 
           <span className="items-found">{this.props.total} movies found </span>
@@ -56,4 +63,9 @@ class ResultsSort extends React.Component {
   }
 }
 
-export default ResultsSort;
+const mapStateToProps = state => ({
+  sortBy: state.gallery.sortBy,
+  total: state.gallery.total,
+});
+
+export default connect(mapStateToProps)(ResultsSort);

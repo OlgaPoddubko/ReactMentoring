@@ -1,20 +1,19 @@
 import React from 'react';
-import {Route, Link, Switch, Redirect} from 'react-router-dom';
+import { Link, Switch } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import 'isomorphic-fetch';
 
-import HomePage from './pages/HomePage';
-import MoviePage from './pages/MoviePage';
+import routes from './routes';
 
 const App = () => (
   <div>
     <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/movie">Movie</Link></li>
+      <li><Link to="/movies">Home</Link></li>
+      <li><Link to="/movies/:id">Movie</Link></li>
     </ul>
 
     <Switch>
-      <Route exact path="/" component={HomePage}/>
-      <Route path="/movie" component={MoviePage}/>
-      <Redirect to="/" />
+      {renderRoutes(routes)}
     </Switch>
 
   </div>

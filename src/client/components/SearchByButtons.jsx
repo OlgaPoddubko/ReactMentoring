@@ -1,22 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { changeSearchBy } from '../actions';
 
 class SearchByButtons extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchBy: 'title' };
     this.handleSearchByChange = this.handleSearchByChange.bind(this);
+    this.boundActions = bindActionCreators({changeSearchBy}, this.props.dispatch);
   }
 
+  static propTypes = {
+    searchBy: PropTypes.string.isRequired,
+  };
+
   handleSearchByChange(e) {
-    this.setState({searchBy: e.target.value});
+    this.boundActions.changeSearchBy(e.target.value);
   }
 
   render() {
     return (
       <React.Fragment>
         <span>search by</span>
-        <button className= { this.state.searchBy == 'title' ? 'active-search search-by' : 'search-by'} type="button" value="title" onClick={this.handleSearchByChange}>title</button>
-        <button className= { this.state.searchBy == 'genre' ? 'active-search search-by' : 'search-by'} type="button" value="genre" onClick={this.handleSearchByChange}>genre</button>
+        <button className= { this.props.searchBy == 'title' ? 'active-search search-by' : 'search-by'} type="button" value="title" onClick={this.handleSearchByChange}>title</button>
+        <button className= { this.props.searchBy == 'genres' ? 'active-search search-by' : 'search-by'} type="button" value="genres" onClick={this.handleSearchByChange}>genre</button>
 
         <style jsx>{`
           .search-by {
@@ -37,4 +45,8 @@ class SearchByButtons extends React.Component {
   }
 }
 
-export default SearchByButtons;
+const mapStateToProps = state => ({
+  searchBy: state.gallery.searchBy,
+});
+
+export default connect(mapStateToProps)(SearchByButtons);

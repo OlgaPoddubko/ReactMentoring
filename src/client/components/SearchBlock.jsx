@@ -1,34 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { fetchGallery, changeSearchInput } from '../actions';
 import Logo from './Logo';
 import SearchByButtons from './SearchByButtons';
 
 class SearchBlock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      inputText: '',
-      searchBy: 'title'
-    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputTextChange = this.handleInputTextChange.bind(this);
-    this.handleSearchByChange = this.handleSearchByChange.bind(this);
+
+    this.boundActions = bindActionCreators({fetchGallery, changeSearchInput}, this.props.dispatch);
   }
+
+  static propTypes = {
+    state: PropTypes.object,
+    search: PropTypes.string,
+  };
 
   handleInputTextChange(e) {
-    this.setState({inputText: e.target.value});
-  }
-
-  handleSearchByChange(e) {
-    this.setState({searchBy: e.target.value});
+    this.boundActions.changeSearchInput(e.target.value);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    if (!this.state.inputText.length) {
+    if (!this.props.search.length) {
       return;
     }
-    // fetch
+    this.boundActions.fetchGallery(this.props.state);
   }
 
   render() {
@@ -41,7 +43,7 @@ class SearchBlock extends React.Component {
             <h3>Find your movie</h3>
 
             <form onSubmit={this.handleSubmit}>
-              <input className="search-input" value={this.state.inputText} onChange={this.handleInputTextChange} placeholder="search" required type="text"/>
+              <input className="search-input" value={this.props.search} onChange={this.handleInputTextChange} placeholder="search" required type="text"/>
               <button className="search-button" type="submit">search</button>
             </form>
 
@@ -92,4 +94,9 @@ class SearchBlock extends React.Component {
   }
 }
 
-export default SearchBlock;
+const mapStateToProps = state => ({
+  state: state.gallery,
+  search: state.gallery.search,
+});
+
+export default connect(mapStateToProps)(SearchBlock);
