@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Logo from './Logo';
+import Header from './Header';
 
 class MovieInfo extends Component {
   static propTypes = {
@@ -11,23 +11,24 @@ class MovieInfo extends Component {
   render() {
     const movie = this.props.currentMovie;
     return (
-      <div className="movie-info">
-        <div className="inner-movie-info">
-          <Logo />
-
-          <div className="movie-img">
-            <img src={movie.poster_path} />
-          </div>
-          <div className="movie-description">
-            <h2 className="movie-title">{movie.title}</h2>
-            <span className="movie-vote">{movie.vote_average}</span>
-            <p className="movie-genres">{movie.genres}</p>
-            <span className="movie-date">{movie.release_date}</span>
-            <span className="movie-runtime">{movie.runtime}</span>
-            <p className="movie-overview">{movie.overview}</p>
-          </div>
-          <div className="clear"></div>
+      <React.Fragment>
+        <Header />
+        <div className="movie-info">
+          <div className="inner-movie-info">
+            <div className="movie-img">
+              <img src={movie.poster_path} />
+            </div>
+            <div className="movie-description">
+              <h2 className="movie-title">{movie.title}</h2>
+              <span className="movie-vote">{movie.vote_average}</span>
+              <p className="movie-genres">{movie.genres}</p>
+              <span className="movie-date">{movie.release_date}</span>
+              <span className="movie-runtime">{movie.runtime}</span>
+              <p className="movie-overview">{movie.overview}</p>
+            </div>
+            <div className="clear"></div>
         </div>
+      </div>
         <style jsx>{`
           .movie-info {
             background: #414141;
@@ -87,7 +88,7 @@ class MovieInfo extends Component {
           }
 
         `}</style>
-      </div>
+      </React.Fragment>
     );
   }
 }

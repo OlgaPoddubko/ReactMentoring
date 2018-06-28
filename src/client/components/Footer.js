@@ -10,7 +10,17 @@ const Footer = props => (
         font-family: Candara, Arial, sans-serif;
       }
 
+html, body {
+  height: 100%;
+}
+#root{
+  min-height: 100%;
+  position: relative;
+}
       .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
         background: #414141;
       }
 

@@ -1,5 +1,6 @@
 import HomePage from './containers/HomePage';
 import MoviePage from './containers/MoviePage';
+import NotFoundPage from './containers/NotFoundPage';
 
 export default [
   {
@@ -11,5 +12,9 @@ export default [
     path: '/movies/:id',
     exact: true,
     component: MoviePage,
+  },
+  {
+    path: '/*',
+    component: NotFoundPage,
   }
 ];
