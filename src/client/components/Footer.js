@@ -4,19 +4,15 @@ const Footer = props => (
   <div className="footer">
     <div className="inner-footer">netflixroulette</div>
     <style jsx>{`
-      *{
-        padding: 0;
-        margin: 0;
-        font-family: Candara, Arial, sans-serif;
+      html, body {
+        height: 100%;
       }
 
-html, body {
-  height: 100%;
-}
-#root{
-  min-height: 100%;
-  position: relative;
-}
+      #root{
+        min-height: 100%;
+        position: relative;
+      }
+
       .footer {
         position: absolute;
         bottom: 0;

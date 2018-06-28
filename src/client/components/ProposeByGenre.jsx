@@ -11,7 +11,7 @@ class ProposeByGenre extends Component {
     return (
       <div className="proposal">
         <div className="inner-proposal">
-          Films by {this.props.currentMovie.genres[0]} genre
+          Films by {this.props.currentMovie.genres ? this.props.currentMovie.genres[0] : ''} genre
         </div>
         <style jsx>{`
           .proposal {
