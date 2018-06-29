@@ -9,22 +9,22 @@ class MovieInfo extends Component {
   };
 
   render() {
-    const movie = this.props.currentMovie;
+    const { poster_path, title, vote_average, genres, release_date, runtime, overview } = this.props.currentMovie;
     return (
       <React.Fragment>
         <Header />
         <div className="movie-info">
           <div className="inner-movie-info">
             <div className="movie-img">
-              <img src={movie.poster_path} />
+              <img src={poster_path} />
             </div>
             <div className="movie-description">
-              <h2 className="movie-title">{movie.title}</h2>
-              <span className="movie-vote">{movie.vote_average}</span>
-              <p className="movie-genres">{movie.genres}</p>
-              <span className="movie-date">{movie.release_date}</span>
-              <span className="movie-runtime">{movie.runtime}</span>
-              <p className="movie-overview">{movie.overview}</p>
+              <h2 className="movie-title">{title}</h2>
+              <span className="movie-vote">{vote_average}</span>
+              <p className="movie-genres">{genres}</p>
+              <span className="movie-date">{release_date}</span>
+              <span className="movie-runtime">{runtime}</span>
+              <p className="movie-overview">{overview}</p>
             </div>
             <div className="clear"></div>
         </div>

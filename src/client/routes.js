@@ -4,6 +4,11 @@ import NotFoundPage from './containers/NotFoundPage';
 
 export default [
   {
+    path: '/',
+    exact: true,
+    component: HomePage,
+  },
+  {
     path: '/movies',
     exact: true,
     component: HomePage,
