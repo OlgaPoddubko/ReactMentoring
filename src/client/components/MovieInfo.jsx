@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+import { fetchMovie } from '../actions';
 import Header from './Header';
 
 class MovieInfo extends Component {
@@ -93,8 +95,8 @@ class MovieInfo extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  currentMovie: state.gallery.currentMovie,
+const mapStateToProps = ( state ) => ({
+  currentMovie: state.gallery.currentMovie
 });
 
 export default connect(mapStateToProps)(MovieInfo);

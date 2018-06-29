@@ -1,4 +1,5 @@
 export const LOAD_GALLERY = 'gallery/LOAD_GALLERY';
+export const UPDATE_MOVIE_BY_ID = 'gallery/UPDATE_MOVIE_BY_ID';
 export const UPDATE_GALLERY = 'gallery/UPDATE_GALLERY';
 export const UPDATE_RELATED_MOVIES = 'gallery/UPDATE_RELATED_MOVIES';
 export const CHANGE_SEARCH_INPUT = 'gallery/CHANGE_SEARCH_INPUT';
@@ -8,6 +9,11 @@ export const SET_CURRENT_MOVIE = 'gallery/SET_CURRENT_MOVIE';
 
 export const loadGallery = () => ({
   type: LOAD_GALLERY,
+});
+
+export const updateMovieById = id => ({
+  type: UPDATE_MOVIE_BY_ID,
+  id,
 });
 
 export const updateGallery = gallery => ({
@@ -46,6 +52,13 @@ export const fetchGallery = ( state = INITIAL_STATE ) => (dispatch) => {
   return fetch(url)
     .then(res => res.json())
     .then(gallery => dispatch(updateGallery(gallery)));
+};
+
+export const fetchMovie = ( id ) => (dispatch) => {
+  let url = `http://react-cdp-api.herokuapp.com/movies/${id}`;
+  return fetch(url)
+    .then(res => res.json())
+    .then(movie => dispatch(setCurrentMovie(movie)));
 };
 
 export const fetchRelatedMovies = ( genre ) => (dispatch) => {

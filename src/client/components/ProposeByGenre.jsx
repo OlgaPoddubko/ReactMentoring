@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchRelatedMovies } from '../actions';
 
 class ProposeByGenre extends Component {
   static propTypes = {
     currentMovie: PropTypes.object.isRequired,
   };
+
+  constructor(props) {
+    super(props);
+
+    this.boundActions = bindActionCreators({fetchRelatedMovies}, this.props.dispatch);
+  }
 
   render() {
     return (

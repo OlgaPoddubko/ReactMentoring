@@ -27,8 +27,20 @@ class ResultsSort extends React.Component {
         <div className="inner-results-sort">
           <div className="sorting-params">
             <span>sort by</span>
-            <button className={ this.props.sortBy == 'release_date' ? 'active-sort' : ''} type="button" value="release_date" onClick={this.handleSortByChange}>release date</button>
-            <button className={ this.props.sortBy == 'vote_average' ? 'active-sort' : ''} type="button" value="vote_average" onClick={this.handleSortByChange}>rating</button>
+            <button
+              className={ this.props.sortBy == 'release_date' ? 'active-sort' : ''}
+              type="button"
+              value="release_date"
+              onClick={this.handleSortByChange}>
+              release date
+            </button>
+            <button
+              className={ this.props.sortBy == 'vote_average' ? 'active-sort' : ''}
+              type="button"
+              value="vote_average"
+              onClick={this.handleSortByChange}>
+              rating
+            </button>
           </div>
 
           <span className="items-found">{this.props.total} movies found </span>

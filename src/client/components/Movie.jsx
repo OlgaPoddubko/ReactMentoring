@@ -6,6 +6,7 @@ import { setCurrentMovie, fetchRelatedMovies } from '../actions';
 import { Link } from 'react-router-dom';
 
 class Movie extends Component {
+
   constructor(props) {
     super(props);
 
@@ -27,7 +28,7 @@ class Movie extends Component {
         </div>
         <div className='item-description'>
           <span className='item-year'>{movie.release_date}</span>
-          <Link to={`/movies/:${movie.id}`}>
+          <Link to={`/movies/${movie.id}`}>
             <h4 className='item-title'>{movie.title}</h4>
           </Link>
           <p className='item-genre'>{movie.genres}</p>
