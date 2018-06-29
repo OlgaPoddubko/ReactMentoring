@@ -26,6 +26,7 @@ class MovieList extends Component {
           .items {
             max-width: 1200px;
             margin: 0 auto;
+            padding-bottom: 90px;
           }
         `}</style>
       </div>

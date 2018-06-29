@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchGallery, changeSearchInput } from '../actions';
-import Logo from './Logo';
+import Header from './Header';
 import SearchByButtons from './SearchByButtons';
 
 class SearchBlock extends React.Component {
@@ -35,11 +35,11 @@ class SearchBlock extends React.Component {
 
   render() {
     return (
-      <div className="header">
-        <div className="inner-header">
-          <Logo />
+      <React.Fragment>
+        <Header />
 
-          <div className="search-block">
+        <div className="search-block">
+          <div className="inner-search-block">
             <h3>Find your movie</h3>
 
             <form onSubmit={this.handleSubmit}>
@@ -51,21 +51,19 @@ class SearchBlock extends React.Component {
           </div>
         </div>
         <style jsx>{`
-          .header {
-            background: #414141;
-          }
-          .inner-header {
-            padding: 30px 35px;
-            max-width: 1130px;
-            margin: 0 auto;
-          }
           .search-block {
+            background: #414141;
             color: #ffffff;
           }
-          .search-block h3 {
+          .inner-search-block {
+            margin: 0 auto;
+            padding: 30px 35px;
+            max-width: 1130px;
+          }
+          .inner-search-block h3 {
             text-transform: uppercase;
           }
-          .search-block form {
+          .inner-search-block form {
             position: relative;
             margin: 20px 0;
           }
@@ -89,7 +87,7 @@ class SearchBlock extends React.Component {
             padding: 10px;
           }
         `}</style>
-      </div>
+      </React.Fragment>
     );
   }
 }

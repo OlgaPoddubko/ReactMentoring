@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Footer = props => (
-  <div className="footer">
-    <div className="inner-footer">netflixroulette</div>
+const Header = props => (
+  <div className="header">
+      <div className='logo'>netflixroulette
+    </div>
     <style jsx>{`
       *{
         padding: 0;
@@ -10,19 +11,18 @@ const Footer = props => (
         font-family: Candara, Arial, sans-serif;
       }
 
-      .footer {
+      .header {
         background: #414141;
       }
 
-      .inner-footer {
+      .logo {
+        padding: 30px 35px;
         max-width: 1130px;
         margin: 0 auto;
         color: #e75f77;
-        font-weight: bold;
-        padding: 30px 35px;
       }
     `}</style>
   </div>
 );
 
-export default Footer;
+export default Header;
