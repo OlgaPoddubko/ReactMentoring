@@ -1,22 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { changeSearchBy } from '../actions';
 
-class SearchByButtons extends React.Component {
+type Props = {
+  searchBy: string,
+  changeSearchBy: Function,
+  dispatch: Function,
+}
+
+class SearchByButtons extends React.Component<Props> {
   constructor(props) {
     super(props);
-    this.handleSearchByChange = this.handleSearchByChange.bind(this);
-    this.boundActions = bindActionCreators({changeSearchBy}, this.props.dispatch);
+    (this:any).handleSearchByChange = this.handleSearchByChange.bind(this);
   }
 
-  static propTypes = {
-    searchBy: PropTypes.string.isRequired,
-  };
-
   handleSearchByChange(e) {
-    this.boundActions.changeSearchBy(e.target.value);
+    this.props.changeSearchBy(e.target.value);
   }
 
   render() {
@@ -49,4 +50,8 @@ const mapStateToProps = state => ({
   searchBy: state.gallery.searchBy,
 });
 
-export default connect(mapStateToProps)(SearchByButtons);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  changeSearchBy,
+}, dispatch);
+
+export default connect(mapDispatchToProps)(SearchByButtons);

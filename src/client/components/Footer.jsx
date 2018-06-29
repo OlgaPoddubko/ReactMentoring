@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = props => (
+const Footer = () => (
   <div className="footer">
     <div className="inner-footer">netflixroulette</div>
     <style jsx>{`

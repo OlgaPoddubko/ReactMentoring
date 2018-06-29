@@ -1,24 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { changeSortBy } from '../actions';
 
-class ResultsSort extends React.Component {
+type Props = {
+  sortBy: string,
+  total: number,
+  changeSortBy: Function,
+  dispatch: Function,
+}
+
+class ResultsSort extends React.Component<Props> {
   constructor(props) {
     super(props);
-    this.handleSortByChange = this.handleSortByChange.bind(this);
-
-    this.boundActions = bindActionCreators({changeSortBy}, this.props.dispatch);
+    (this:any).handleSortByChange = this.handleSortByChange.bind(this);
   }
 
-  static propTypes = {
-    sortBy: PropTypes.string.isRequired,
-    total: PropTypes.number.isRequired,
-  };
 
   handleSortByChange(e) {
-    this.boundActions.changeSortBy(e.target.value);
+    this.props.changeSortBy(e.target.value);
   }
 
   render() {
@@ -80,4 +81,8 @@ const mapStateToProps = state => ({
   total: state.gallery.total,
 });
 
-export default connect(mapStateToProps)(ResultsSort);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  changeSortBy
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ResultsSort);

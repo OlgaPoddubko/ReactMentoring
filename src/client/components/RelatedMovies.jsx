@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import Movie from './Movie';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-class RelatedMovies extends Component {
-  static propTypes = {
-    relatedMovies: PropTypes.arrayOf(PropTypes.object),
-  };
+type Props = {
+  relatedMovies: [],
+}
 
+class RelatedMovies extends React.Component<Props> {
   static defaultProps = {
     relatedMovies: [],
   };

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
 
 import ErrorBoundary from '../components/ErrorBoundary';
@@ -9,12 +9,12 @@ import MovieList from '../components/MovieList';
 import EmptySearchResult from '../components/EmptySearchResult';
 import Footer from '../components/Footer';
 
-class HomePage extends Component {
-  static propTypes = {
-    loading: PropTypes.bool,
-    movies: PropTypes.arrayOf(PropTypes.object),
-  };
+type Props = {
+  loading: boolean,
+  movies: [],
+}
 
+class HomePage extends React.Component<Props> {
   static defaultProps = {
     loading: false,
     movies: [],

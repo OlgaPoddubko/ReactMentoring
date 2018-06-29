@@ -1,28 +1,30 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchGallery, changeSearchInput } from '../actions';
 import Header from './Header';
 import SearchByButtons from './SearchByButtons';
 
-class SearchBlock extends React.Component {
+
+type Props = {
+  state: {},
+  search: string,
+  dispatch: Function,
+  fetchGallery: Function,
+  changeSearchInput: Function,
+}
+
+class SearchBlock extends React.Component<Props> {
   constructor(props) {
     super(props);
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInputTextChange = this.handleInputTextChange.bind(this);
-
-    this.boundActions = bindActionCreators({fetchGallery, changeSearchInput}, this.props.dispatch);
+    (this:any).handleSubmit = this.handleSubmit.bind(this);
+    (this:any).handleInputTextChange = this.handleInputTextChange.bind(this);
   }
 
-  static propTypes = {
-    state: PropTypes.object,
-    search: PropTypes.string,
-  };
-
   handleInputTextChange(e) {
-    this.boundActions.changeSearchInput(e.target.value);
+    this.props.changeSearchInput(e.target.value);
   }
 
   handleSubmit(e) {
@@ -30,7 +32,7 @@ class SearchBlock extends React.Component {
     if (!this.props.search.length) {
       return;
     }
-    this.boundActions.fetchGallery(this.props.state);
+    this.props.fetchGallery(this.props.state);
   }
 
   render() {
@@ -97,4 +99,8 @@ const mapStateToProps = state => ({
   search: state.gallery.search,
 });
 
-export default connect(mapStateToProps)(SearchBlock);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchGallery, changeSearchInput
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBlock);
