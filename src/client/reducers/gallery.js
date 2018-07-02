@@ -8,7 +8,7 @@ import {
   SET_CURRENT_MOVIE
 } from '../actions';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   search: '',
   searchBy: 'title',
   sortBy: 'release_date',
