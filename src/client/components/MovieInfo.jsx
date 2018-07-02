@@ -15,7 +15,7 @@ type Props = {
   },
 }
 
-class MovieInfo extends React.Component<Props> {
+export class MovieInfo extends React.Component<Props> {
   render() {
     const { poster_path, title, vote_average, genres, release_date, runtime, overview } = this.props.currentMovie;
     return (

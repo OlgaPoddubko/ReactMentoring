@@ -10,7 +10,7 @@ type Props = {
   dispatch: Function,
 }
 
-class SearchByButtons extends React.Component<Props> {
+export class SearchByButtons extends React.Component<Props> {
   constructor(props) {
     super(props);
     (this:any).handleSearchByChange = this.handleSearchByChange.bind(this);

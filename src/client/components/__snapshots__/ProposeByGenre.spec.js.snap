@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render ProposeByGenre should render ProposeByGenre 1`] = `
+<div
+  className="proposal"
+>
+  <div
+    className="inner-proposal"
+  >
+    Films by 
+    Romance
+     genre
+  </div>
+  <style
+    jsx={true}
+  >
+    
+          .proposal {
+            background: #f5f5f5;
+          }
+          .inner-proposal {
+            padding: 15px 35px;
+            max-width: 1130px;
+            margin: 0 auto;
+          }
+        
+  </style>
+</div>
+`;

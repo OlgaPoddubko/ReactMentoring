@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render MoviePage should render MoviePage 1`] = `
+<React.Fragment>
+  <ErrorBoundary>
+    <Connect(MovieInfo) />
+    <Connect(ProposeByGenre) />
+    <Connect(RelatedMovies) />
+    <Footer />
+  </ErrorBoundary>
+</React.Fragment>
+`;

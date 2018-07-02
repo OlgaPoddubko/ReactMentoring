@@ -11,7 +11,7 @@ type Props = {
   dispatch: Function,
 }
 
-class ResultsSort extends React.Component<Props> {
+export class ResultsSort extends React.Component<Props> {
   constructor(props) {
     super(props);
     (this:any).handleSortByChange = this.handleSortByChange.bind(this);

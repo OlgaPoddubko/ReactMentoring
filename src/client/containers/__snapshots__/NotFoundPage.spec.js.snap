@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render NotFoundPage should render NotFoundPage 1`] = `
+<React.Fragment>
+  <ErrorBoundary>
+    <Header />
+    <NotFound />
+    <Footer />
+  </ErrorBoundary>
+</React.Fragment>
+`;

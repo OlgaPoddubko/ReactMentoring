@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render NotFound should render NotFound 1`] = `
+<div
+  className="not-found"
+>
+  Sorry, page not found.
+  <style
+    jsx={true}
+  >
+    
+        .not-found {
+          max-width: 1130px;
+          margin: 0 auto;
+          padding: 80px 35px;
+          text-align: center;
+          font-weight: bold;
+          font-size: 48px;
+        }
+      
+  </style>
+</div>
+`;

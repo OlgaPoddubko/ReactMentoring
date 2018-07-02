@@ -18,7 +18,7 @@ type Props = {
   dispatch: Function,
 }
 
-class Movie extends React.Component<Props> {
+export class Movie extends React.Component<Props> {
   constructor(props) {
     super(props);
 

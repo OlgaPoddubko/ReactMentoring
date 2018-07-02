@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render MovieInfo should render MovieInfo 1`] = `
+<React.Fragment>
+  <Header />
+  <div
+    className="movie-info"
+  >
+    <div
+      className="inner-movie-info"
+    >
+      <div
+        className="movie-img"
+      >
+        <img
+          src="https://image.tmdb.org/t/p/w500/jsJlOhVHiz1xXr36616EI8tJ4b2.jpg"
+        />
+      </div>
+      <div
+        className="movie-description"
+      >
+        <h2
+          className="movie-title"
+        >
+          Pride and Prejudice and Zombies
+        </h2>
+        <span
+          className="movie-vote"
+        >
+          5.5
+        </span>
+        <p
+          className="movie-genres"
+        >
+          Romance
+          Horror
+          Comedy
+          Thriller
+        </p>
+        <span
+          className="movie-date"
+        >
+          2016-02-04
+        </span>
+        <span
+          className="movie-runtime"
+        >
+          108
+        </span>
+        <p
+          className="movie-overview"
+        >
+          A zombie outbreak has fallen upon the land in this reimagining of Jane Austen’s classic tale of the tangled relationships between lovers from different social classes in 19th century England. Feisty heroine Elizabeth Bennet (Lily James) is a master of martial arts and weaponry and the handsome Mr. Darcy (Sam Riley) is a fierce zombie killer, yet the epitome of upper class prejudice. As the zombie outbreak intensifies, they must swallow their pride and join forces on the blood-soaked battlefield in order to conquer the undead once and for all.
+        </p>
+      </div>
+      <div
+        className="clear"
+      />
+    </div>
+  </div>
+  <style
+    jsx={true}
+  >
+    
+          .movie-info {
+            background: #414141;
+          }
+          .inner-movie-info {
+            max-width: 1130px;
+            margin: 0 auto;
+            padding: 30px 35px 50px;
+            color: #ffffff;
+          }
+          .movie-img {
+            display: inline-block;
+            width: 365px;
+            height: 516px;
+            overflow: hidden;
+          }
+          .movie-img img {
+            width: 100%;
+            height: auto;
+          }
+          .movie-description {
+            display: inline-block;
+            width: 660px;
+            float: right;
+          }
+          .movie-title {
+            display: inline-block;
+            margin-top: -15px;
+            max-width: 85%;
+            color: #e75f77;
+            font-size: 38px;
+          }
+          .movie-vote {
+            border: 1px solid #bad3a9;
+            display: inline-block;
+            padding: 15px;
+            width: 25px;
+            height: 25px;
+            margin-left: 25px;
+            border-radius: 30px;
+            color: #bad3a9;
+            text-align: center;
+          }
+          .movie-date, .movie-runtime {
+            font-weight: bold;
+          }
+          .movie-runtime {
+            margin-left: 20px;
+          }
+          .movie-overview {
+            font-size: 18px;
+            margin-top: 20px;
+          }
+
+          .clear {
+            clear: both;
+          }
+
+        
+  </style>
+</React.Fragment>
+`;

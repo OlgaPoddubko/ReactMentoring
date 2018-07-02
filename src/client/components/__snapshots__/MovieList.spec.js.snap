@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render MovieList should render MovieList 1`] = `
+<div
+  className="items"
+>
+  <style
+    jsx={true}
+  >
+    
+          .items {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 90px;
+          }
+        
+  </style>
+</div>
+`;
