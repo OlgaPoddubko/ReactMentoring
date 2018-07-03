@@ -33,18 +33,17 @@ export class Movie extends React.Component<Props> {
   render() {
     const movie = this.props.movie;
     return (
-      <div className="item" onClick={this.handleClick}>
-        <div className='item-img'>
-          <img src={movie.poster_path} />
+      <Link to={`/movies/${movie.id}`}>
+        <div className="item" onClick={this.handleClick}>
+          <div className='item-img'>
+            <img src={movie.poster_path} />
+          </div>
+          <div className='item-description'>
+            <span className='item-year'>{movie.release_date}</span>
+              <h4 className='item-title'>{movie.title}</h4>
+            <p className='item-genre'>{movie.genres}</p>
+          </div>
         </div>
-        <div className='item-description'>
-          <span className='item-year'>{movie.release_date}</span>
-          <Link to={`/movies/${movie.id}`}>
-            <h4 className='item-title'>{movie.title}</h4>
-          </Link>
-          <p className='item-genre'>{movie.genres}</p>
-        </div>
-
         <style jsx>{`
           .item {
             display: inline-block;
@@ -71,7 +70,7 @@ export class Movie extends React.Component<Props> {
             text-transform: uppercase;
           }
         `}</style>
-      </div>
+      </Link>
     );
   }
 }

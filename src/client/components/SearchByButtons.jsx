@@ -54,4 +54,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   changeSearchBy,
 }, dispatch);
 
-export default connect(mapDispatchToProps)(SearchByButtons);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchByButtons);
