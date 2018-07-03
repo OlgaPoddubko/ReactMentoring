@@ -1,22 +1,33 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setCurrentMovie, fetchRelatedMovies } from '../actions';
 import { Link } from 'react-router-dom';
 
-class Movie extends Component {
+type Props = {
+  movie: {
+    id: number,
+    title: string,
+    poster_path: string,
+    release_date: string,
+    genres: Array<string>
+  },
+  setCurrentMovie: Function,
+  fetchRelatedMovies: Function,
+  dispatch: Function,
+}
 
+class Movie extends React.Component<Props> {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
-    this.boundActions = bindActionCreators({setCurrentMovie, fetchRelatedMovies}, this.props.dispatch);
+    (this: any).handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    this.boundActions.setCurrentMovie(this.props.movie);
-    this.boundActions.fetchRelatedMovies(this.props.movie.genres[0]);
+    this.props.setCurrentMovie(this.props.movie);
+    this.props.fetchRelatedMovies(this.props.movie.genres[0]);
   }
 
   render() {
@@ -65,4 +76,8 @@ class Movie extends Component {
   }
 }
 
-export default connect()(Movie);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  setCurrentMovie, fetchRelatedMovies
+}, dispatch);
+
+export default connect(null, mapDispatchToProps)(Movie);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EmptySearchResult = props => (
+const EmptySearchResult = ()=> (
     <div className="empty-search-results">No films found.
       <style jsx>{`
         .empty-search-results {

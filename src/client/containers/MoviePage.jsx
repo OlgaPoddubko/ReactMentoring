@@ -1,5 +1,5 @@
-import React, { Component }  from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
@@ -12,18 +12,20 @@ import ProposeByGenre from '../components/ProposeByGenre';
 import RelatedMovies from '../components/RelatedMovies';
 import Footer from '../components/Footer';
 
-class MoviePage extends Component {
-  static propTypes = {
-    fetchMovie: PropTypes.func.isRequired,
-    fetchRelatedMovies: PropTypes.isRequired,
-    currentMovie: PropTypes.object,
-    match: PropTypes.shape({
-     params: PropTypes.shape({
-       movieId: PropTypes.string.isRequired,
-     }).isRequired,
-   }).isRequired,
-  };
+type Props = {
+  fetchMovie: Function,
+  fetchRelatedMovies: Function,
+  currentMovie: {
+    genres?: Array<string>
+  },
+  match: {
+   params: {
+     movieId: string
+   }
+ },
+}
 
+class MoviePage extends React.Component<Props> {
   static fetchData(dispatch, match) {
       return dispatch(fetchMovie(match.params.movieId));
     }
@@ -34,8 +36,6 @@ class MoviePage extends Component {
   }
 
   render() {
-    console.log(`MoviePage ${this.props.match.params.movieId}`);
-    console.log(`MoviePage currentMovie ${this.props.currentMovie.title}`);
     return (
         <React.Fragment>
           <ErrorBoundary >

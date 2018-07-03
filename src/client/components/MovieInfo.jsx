@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import { connect } from 'react-redux';
-
-import { fetchMovie } from '../actions';
 import Header from './Header';
 
-class MovieInfo extends Component {
-  static propTypes = {
-    currentMovie: PropTypes.object.isRequired,
-  };
+type Props = {
+  currentMovie: {
+    poster_path: string,
+    title: string,
+    vote_average: number,
+    genres?: Array<string>,
+    release_date: string,
+    runtime: number,
+    overview: string,
+  },
+}
 
+class MovieInfo extends React.Component<Props> {
   render() {
     const { poster_path, title, vote_average, genres, release_date, runtime, overview } = this.props.currentMovie;
     return (
