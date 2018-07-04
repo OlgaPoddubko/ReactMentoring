@@ -1,4 +1,4 @@
-import reducer from '../reducers/gallery';
+import reducer from './gallery';
 import * as types from '../actions';
 import moviesArr from '../../../test/moviesArr';
 
@@ -12,9 +12,9 @@ describe('gallery reducer', () => {
       total: 0,
       currentMovie: {},
       relatedMovies: [],
-      loading: false
-    })
-  })
+      loading: false,
+    });
+  });
 
   it('should handle LOAD_GALLERY', () => {
     expect(reducer([
@@ -26,22 +26,22 @@ describe('gallery reducer', () => {
         total: 0,
         currentMovie: {},
         relatedMovies: [],
-        loading: false
-      }
-    ], {type: types.LOAD_GALLERY})).toEqual({
-      "0": {
-        "currentMovie": {},
-        "loading": false,
-        "movies": [],
-        "relatedMovies": [],
-        "search": "",
-        "searchBy": "title",
-        "sortBy": "release_date",
-        "total": 0
+        loading: false,
       },
-      loading: true
-    })
-  })
+    ], { type: types.LOAD_GALLERY })).toEqual({
+      0: {
+        currentMovie: {},
+        loading: false,
+        movies: [],
+        relatedMovies: [],
+        search: '',
+        searchBy: 'title',
+        sortBy: 'release_date',
+        total: 0,
+      },
+      loading: true,
+    });
+  });
 
   it('should handle UPDATE_GALLERY', () => {
     expect(reducer([
@@ -53,13 +53,13 @@ describe('gallery reducer', () => {
         total: 0,
         currentMovie: {},
         relatedMovies: [],
-        loading: false
-      }
+        loading: false,
+      },
     ], {
       type: types.UPDATE_GALLERY,
-      gallery: moviesArr
+      gallery: moviesArr,
     })).toEqual({
-      "0": {
+      0: {
         search: '',
         searchBy: 'title',
         sortBy: 'release_date',
@@ -67,13 +67,13 @@ describe('gallery reducer', () => {
         total: 0,
         currentMovie: {},
         relatedMovies: [],
-        loading: false
+        loading: false,
       },
       movies: moviesArr.data,
       total: moviesArr.total,
-      loading: false
-    })
-  })
+      loading: false,
+    });
+  });
 
   it('should handle UPDATE_RELATED_MOVIES', () => {
     expect(reducer([
@@ -85,13 +85,13 @@ describe('gallery reducer', () => {
         total: 0,
         currentMovie: {},
         relatedMovies: [],
-        loading: false
-      }
+        loading: false,
+      },
     ], {
       type: types.UPDATE_RELATED_MOVIES,
-      relatedMovies: moviesArr
+      relatedMovies: moviesArr,
     })).toEqual({
-      "0": {
+      0: {
         search: '',
         searchBy: 'title',
         sortBy: 'release_date',
@@ -99,12 +99,12 @@ describe('gallery reducer', () => {
         total: 0,
         currentMovie: {},
         relatedMovies: [],
-        loading: false
+        loading: false,
       },
       relatedMovies: moviesArr.data,
-      loading: false
-    })
-  })
+      loading: false,
+    });
+  });
 
   it('should handle CHANGE_SEARCH_INPUT', () => {
     expect(reducer([
@@ -116,25 +116,25 @@ describe('gallery reducer', () => {
         total: 0,
         currentMovie: {},
         relatedMovies: [],
-        loading: false
-      }
+        loading: false,
+      },
     ], {
       type: types.CHANGE_SEARCH_INPUT,
-      newSearchInput: 'cat'
+      newSearchInput: 'cat',
     })).toEqual({
-      "0": {
-        "currentMovie": {},
-        "loading": false,
-        "movies": [],
-        "relatedMovies": [],
-        "search": "",
-        "searchBy": "title",
-        "sortBy": "release_date",
-        "total": 0
+      0: {
+        currentMovie: {},
+        loading: false,
+        movies: [],
+        relatedMovies: [],
+        search: '',
+        searchBy: 'title',
+        sortBy: 'release_date',
+        total: 0,
       },
-      "search": "cat"
-    })
-  })
+      search: 'cat',
+    });
+  });
 
   it('should handle CHANGE_SEARCH_BY', () => {
     expect(reducer([
@@ -146,24 +146,24 @@ describe('gallery reducer', () => {
         total: 0,
         currentMovie: {},
         relatedMovies: [],
-        loading: false
-      }
+        loading: false,
+      },
     ], {
       type: types.CHANGE_SEARCH_BY,
-      newSearchBy: 'genres'
+      newSearchBy: 'genres',
     })).toEqual({
-      "0": {
-        "currentMovie": {},
-        "loading": false,
-        "movies": [],
-        "relatedMovies": [],
-        "search": "",
-        "searchBy": "title",
-        "sortBy": "release_date",
-        "total": 0
+      0: {
+        currentMovie: {},
+        loading: false,
+        movies: [],
+        relatedMovies: [],
+        search: '',
+        searchBy: 'title',
+        sortBy: 'release_date',
+        total: 0,
       },
-      "searchBy": "genres"
-    })
+      searchBy: 'genres',
+    });
 
     expect(reducer([
       {
@@ -174,25 +174,25 @@ describe('gallery reducer', () => {
         total: 0,
         currentMovie: {},
         relatedMovies: [],
-        loading: false
-      }
+        loading: false,
+      },
     ], {
       type: types.CHANGE_SEARCH_BY,
-      newSearchBy: 'title'
+      newSearchBy: 'title',
     })).toEqual({
-      "0": {
-        "currentMovie": {},
-        "loading": false,
-        "movies": [],
-        "relatedMovies": [],
-        "search": "",
-        "searchBy": "genres",
-        "sortBy": "release_date",
-        "total": 0
+      0: {
+        currentMovie: {},
+        loading: false,
+        movies: [],
+        relatedMovies: [],
+        search: '',
+        searchBy: 'genres',
+        sortBy: 'release_date',
+        total: 0,
       },
-      "searchBy": "title"
-    })
-  })
+      searchBy: 'title',
+    });
+  });
 
   it('should handle CHANGE_SORT_BY', () => {
     expect(reducer([
@@ -204,24 +204,24 @@ describe('gallery reducer', () => {
         total: 0,
         currentMovie: {},
         relatedMovies: [],
-        loading: false
-      }
+        loading: false,
+      },
     ], {
       type: types.CHANGE_SORT_BY,
-      newSortBy: 'vote_average'
+      newSortBy: 'vote_average',
     })).toEqual({
-      "0": {
-        "currentMovie": {},
-        "loading": false,
-        "movies": [],
-        "relatedMovies": [],
-        "search": "",
-        "searchBy": "title",
-        "sortBy": "release_date",
-        "total": 0
+      0: {
+        currentMovie: {},
+        loading: false,
+        movies: [],
+        relatedMovies: [],
+        search: '',
+        searchBy: 'title',
+        sortBy: 'release_date',
+        total: 0,
       },
-      "sortBy": "vote_average"
-    })
+      sortBy: 'vote_average',
+    });
 
     expect(reducer([
       {
@@ -232,25 +232,25 @@ describe('gallery reducer', () => {
         total: 0,
         currentMovie: {},
         relatedMovies: [],
-        loading: false
-      }
+        loading: false,
+      },
     ], {
       type: types.CHANGE_SORT_BY,
-      newSortBy: 'release_date'
+      newSortBy: 'release_date',
     })).toEqual({
-      "0": {
-        "currentMovie": {},
-        "loading": false,
-        "movies": [],
-        "relatedMovies": [],
-        "search": "",
-        "searchBy": "title",
-        "sortBy": "vote_average",
-        "total": 0
+      0: {
+        currentMovie: {},
+        loading: false,
+        movies: [],
+        relatedMovies: [],
+        search: '',
+        searchBy: 'title',
+        sortBy: 'vote_average',
+        total: 0,
       },
-      "sortBy": "release_date"
-    })
-  })
+      sortBy: 'release_date',
+    });
+  });
 
   it('should handle SET_CURRENT_MOVIE', () => {
     expect(reducer([
@@ -262,23 +262,23 @@ describe('gallery reducer', () => {
         total: 0,
         currentMovie: {},
         relatedMovies: [],
-        loading: false
-      }
+        loading: false,
+      },
     ], {
       type: types.SET_CURRENT_MOVIE,
-      newCurrentMovie: moviesArr.data[1]
+      newCurrentMovie: moviesArr.data[1],
     })).toEqual({
-      "0": {
-        "currentMovie": {},
-        "loading": false,
-        "movies": [],
-        "relatedMovies": [],
-        "search": "",
-        "searchBy": "title",
-        "sortBy": "release_date",
-        "total": 0
+      0: {
+        currentMovie: {},
+        loading: false,
+        movies: [],
+        relatedMovies: [],
+        search: '',
+        searchBy: 'title',
+        sortBy: 'release_date',
+        total: 0,
       },
-      "currentMovie": moviesArr.data[1]
-    })
-  })
-})
+      currentMovie: moviesArr.data[1],
+    });
+  });
+});

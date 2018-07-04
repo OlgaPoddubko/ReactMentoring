@@ -1,0 +1,9 @@
+node_modules/
+coverage/
+cypress/
+public/
+/server
+/__snapshots__
+webpack.*
+*.spec.js
+moviesArr.js

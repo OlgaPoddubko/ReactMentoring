@@ -1,3 +1,4 @@
+/* eslint no-console: ["error", { allow: ["info"] }] */
 import express from 'express';
 import handleRender from './handleRender';
 
@@ -8,5 +9,5 @@ server.use(express.static('public'));
 server.get('/*', handleRender);
 
 server.listen(port, () => {
-	console.info(`Express listening on port ${port}`);
+  console.info(`Express listening on port ${port}`);
 });

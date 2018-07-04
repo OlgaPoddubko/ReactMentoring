@@ -1,0 +1,10 @@
+{
+parser: "babel-eslint",
+"rules": {
+  "max-len": [1, 160, 2],
+  "prop-types": 0,
+  "import/no-unresolved": "off"
+},
+"globals": { "fetch": false },
+"extends": ["airbnb-base"]
+}
