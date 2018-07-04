@@ -1,5 +1,5 @@
 import gallery from './gallery';
 
-export default {
+export {
   gallery,
 };
