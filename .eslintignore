@@ -1,7 +1,9 @@
 node_modules/
 coverage/
 cypress/
+lib/
 public/
+stories/
 /server
 /__snapshots__
 webpack.*
