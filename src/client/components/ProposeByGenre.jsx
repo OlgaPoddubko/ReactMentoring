@@ -8,7 +8,7 @@ type Props = {
   },
 }
 
-class ProposeByGenre extends React.Component<Props> {
+export class ProposeByGenre extends React.Component<Props> {
   render() {
     return (
       <div className="proposal">

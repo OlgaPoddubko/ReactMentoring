@@ -7,7 +7,7 @@ type Props = {
   movies: [],
 }
 
-class MovieList extends React.Component<Props> {
+export class MovieList extends React.Component<Props> {
   static defaultProps = {
     movies: [],
   };

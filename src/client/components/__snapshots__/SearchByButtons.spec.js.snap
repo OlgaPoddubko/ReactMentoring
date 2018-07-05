@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render SearchByButtons should render SearchByButtons 1`] = `
+<React.Fragment>
+  <span>
+    search by
+  </span>
+  <button
+    className="search-by"
+    onClick={[Function]}
+    type="button"
+    value="title"
+  >
+    title
+  </button>
+  <button
+    className="search-by"
+    onClick={[Function]}
+    type="button"
+    value="genres"
+  >
+    genre
+  </button>
+  <style
+    jsx={true}
+  >
+    
+          .search-by {
+            margin-left: 20px;
+            padding: 10px;
+            width: 100px;
+            background: #4d4d4d;
+            color: #ffffff;
+            border: none;
+            text-transform: uppercase;
+          }
+          .active-search {
+            background: #e75f77;
+          }
+        
+  </style>
+</React.Fragment>
+`;

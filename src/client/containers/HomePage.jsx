@@ -14,7 +14,7 @@ type Props = {
   movies: [],
 }
 
-class HomePage extends React.Component<Props> {
+export class HomePage extends React.Component<Props> {
   static defaultProps = {
     loading: false,
     movies: [],

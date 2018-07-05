@@ -25,7 +25,7 @@ type Props = {
  },
 }
 
-class MoviePage extends React.Component<Props> {
+export class MoviePage extends React.Component<Props> {
   static fetchData(dispatch, match) {
       return dispatch(fetchMovie(match.params.movieId));
     }

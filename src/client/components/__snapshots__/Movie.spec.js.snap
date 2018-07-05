@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Movie should render Movie 1`] = `
+<Link
+  replace={false}
+  to="/movies/58431"
+>
+  <div
+    className="item"
+    onClick={[Function]}
+  >
+    <div
+      className="item-img"
+    >
+      <img
+        src="https://image.tmdb.org/t/p/w500/jsJlOhVHiz1xXr36616EI8tJ4b2.jpg"
+      />
+    </div>
+    <div
+      className="item-description"
+    >
+      <span
+        className="item-year"
+      >
+        2016-02-04
+      </span>
+      <h4
+        className="item-title"
+      >
+        Pride and Prejudice and Zombies
+      </h4>
+      <p
+        className="item-genre"
+      >
+        Romance
+        Horror
+        Comedy
+        Thriller
+      </p>
+    </div>
+  </div>
+  <style
+    jsx={true}
+  >
+    
+          .item {
+            display: inline-block;
+            width: 27%;
+            height: 540px;
+            margin: 20px 36.7px;
+          }
+          .item-img {
+            height: 500px;
+            overflow: hidden;
+          }
+          .item-img img {
+            width: 100%;
+            height: auto;
+          }
+          .item-description {
+            padding: 6px;
+          }
+          .item-year {
+            float: right;
+          }
+          .item-title {
+            display: inline-block;
+            text-transform: uppercase;
+          }
+        
+  </style>
+</Link>
+`;

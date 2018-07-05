@@ -15,7 +15,7 @@ type Props = {
   changeSearchInput: Function,
 }
 
-class SearchBlock extends React.Component<Props> {
+export class SearchBlock extends React.Component<Props> {
   constructor(props) {
     super(props);
 

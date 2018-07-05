@@ -7,6 +7,17 @@ export const CHANGE_SEARCH_BY = 'gallery/CHANGE_SEARCH_BY';
 export const CHANGE_SORT_BY = 'gallery/CHANGE_SORT_BY';
 export const SET_CURRENT_MOVIE = 'gallery/SET_CURRENT_MOVIE';
 
+export const INITIAL_STATE = {
+  search: '',
+  searchBy: 'title',
+  sortBy: 'release_date',
+  movies: [],
+  total: 0,
+  currentMovie: {},
+  relatedMovies: [],
+  loading: false,
+};
+
 export const loadGallery = () => ({
   type: LOAD_GALLERY,
 });
@@ -43,27 +54,27 @@ export const changeSortBy = newSortBy => ({
 
 export const setCurrentMovie = newCurrentMovie => ({
   type: SET_CURRENT_MOVIE,
-  newCurrentMovie
-})
+  newCurrentMovie,
+});
 
-export const fetchGallery = ( state = INITIAL_STATE ) => (dispatch) => {
+export const fetchGallery = (state = INITIAL_STATE) => (dispatch) => {
   dispatch(loadGallery());
-  let url = `http://react-cdp-api.herokuapp.com/movies?sortBy=${state.sortBy}&sortOrder=desc&search=${state.search}&searchBy=${state.searchBy}&limit=12`;
+  const url = `http://react-cdp-api.herokuapp.com/movies?sortBy=${state.sortBy}&sortOrder=desc&search=${state.search}&searchBy=${state.searchBy}&limit=12`;
   return fetch(url)
     .then(res => res.json())
     .then(gallery => dispatch(updateGallery(gallery)));
 };
 
-export const fetchMovie = ( id ) => (dispatch) => {
-  let url = `http://react-cdp-api.herokuapp.com/movies/${id}`;
+export const fetchMovie = id => (dispatch) => {
+  const url = `http://react-cdp-api.herokuapp.com/movies/${id}`;
   return fetch(url)
     .then(res => res.json())
     .then(movie => dispatch(setCurrentMovie(movie)));
 };
 
-export const fetchRelatedMovies = ( genre ) => (dispatch) => {
+export const fetchRelatedMovies = genre => (dispatch) => {
   dispatch(loadGallery());
-  let url = `http://react-cdp-api.herokuapp.com/movies?search=${genre}&searchBy=genres&limit=12`;
+  const url = `http://react-cdp-api.herokuapp.com/movies?search=${genre}&searchBy=genres&limit=12`;
   return fetch(url)
     .then(res => res.json())
     .then(relatedMovies => dispatch(updateRelatedMovies(relatedMovies)));

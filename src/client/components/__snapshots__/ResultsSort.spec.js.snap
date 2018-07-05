@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render ResultsSort should render ResultsSort 1`] = `
+<div
+  className="results-sort"
+>
+  <div
+    className="inner-results-sort"
+  >
+    <div
+      className="sorting-params"
+    >
+      <span>
+        sort by
+      </span>
+      <button
+        className=""
+        onClick={[Function]}
+        type="button"
+        value="release_date"
+      >
+        release date
+      </button>
+      <button
+        className=""
+        onClick={[Function]}
+        type="button"
+        value="vote_average"
+      >
+        rating
+      </button>
+    </div>
+    <span
+      className="items-found"
+    >
+       movies found 
+    </span>
+  </div>
+  <style
+    jsx={true}
+  >
+    
+          .results-sort {
+            background: #f5f5f5;
+          }
+          .inner-results-sort {
+            padding: 15px 35px;
+            max-width: 1130px;
+            margin: 0 auto;
+          }
+          .sorting-params {
+            float: right;
+            display: inline-block;
+            text-align: right;
+          }
+          .sorting-params button {
+            margin-left: 30px;
+            border: none;
+            background: #f5f5f5;
+            font-size: inherit;
+          }
+          .active-sort {
+            color: #e75f77;
+          }
+        
+  </style>
+</div>
+`;
